@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SMILE-pi Dibujar Y Pintar</title>
+    <script type="text/javascript" src="js/react-with-addons.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/literallycanvas.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/literallycanvas.css" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="navbar-static-top.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">SMILE-pi <span style="color:blue">P</span><span style="color:purple">I</span><span style="color:red">N</span><span style="color:orange">T</span><span style="color:green">A</span><span style="color:blue">R</span></a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="literally export"></div>
+      <br/>
+      <form class="controls export">
+        <input type="submit" data-action="export-as-png" value="guardar como archivo PNG">
+      </form>
+      
+      <script>
+        $(document).ready(function() {
+          var lc = LC.init(document.getElementsByClassName('literally export')[0]);
+          $('.controls.export [data-action=export-as-png]').click(function(e) {
+            e.preventDefault();
+            window.open(lc.getImage().toDataURL());
+          });
+        });
+      </script>
+    </div>
+  </body>
+</html>
